@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerName www.qy.com
+    DocumentRoot "D:\LJ\qy\web"
+    <Directory "D:\LJ\qy\web">
+        Options Indexes FollowSymLinks
+        Order Allow,Deny
+        Allow from all
+        <IfModule mod_rewrite.c>
+          RewriteEngine On
+          RewriteCond %{REQUEST_FILENAME} !-f
+          RewriteCond %{REQUEST_FILENAME} !-d
+          RewriteRule ^(.*)$ /index.php/$1 [L]
+        </IfModule>
+    </Directory>
+</VirtualHost>

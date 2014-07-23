@@ -1,0 +1,415 @@
+<!DOCTYpE html pUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>路虎体验中心</title>
+        <meta http-equiv="keywords" content="#" />
+        <meta http-equiv="description" content="#" />
+        <link href="/css/guide.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="/js/jquery1_4_1.js"></script>
+        <script type="text/javascript" src="/js/jquery.base.js"></script>
+        <!--[if lte IE 6]>
+<script src="http://static.sdg-china.com/mir2/js/iepng.js" type="text/javascript"></script>
+<script>
+DD_belatedPNG.fix('*');
+</script>
+<![endif]-->
+
+    </head>
+
+    <body>
+        <!--wrap-->
+        <div class="wrap">
+            <!--left-->
+            <div class="sideBar fl">
+                <div class="logo"><a href="#"><img src="/images/logo.jpg"></a></div>
+                <!--角色信息-->
+                <div class="sideCon">
+                    <div class="sideConInner">
+                        <div class="sideConTit"><span class="userName">管理员</span><a class="exit" href="/login/out.html">退出</a></div>
+                        <div class="line"></div>
+                        <div class="sideConUserDel">
+                            <!--
+                            <p>姓名：admin_name</p>
+                            <div><span class="fl">角色：</span>
+                                                        <div class="role fl"><i class="yellow"><span class="corL"></span>管理员<span class="corR"></span></i></div>
+                                <div class="clearboth"></div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <!--/角色信息-->
+
+                <!--角色管理-->
+                <div class="sideCon">
+                    <div class="line"></div>
+                    <div class="sideConInner">
+                        <div class="sideConTit"><b>角色管理</b></div>
+                        <div class="line"></div>
+                        <div class="sideConIntro">
+                            <div class="sideConTit sideConTitSub"><a href="/user/add.html" class=""><span class="edit">创建</span></a></div>
+                            <div class="sideConTit sideConTitSub"><a href="/user/index.html" class=""><span class="check">查询</span></a></div>
+                        </div>
+                    </div>
+                </div>
+                <!--/角色管理-->
+
+                <!--前台登记-->
+                <div class="sideCon">
+                    <div class="line"></div>
+                    <div class="sideConInner">
+                        <div class="sideConTit"><b>前台登记</b></div>
+                        <div class="line"></div>
+                        <div class="sideConIntro">
+                            <div class="sideConTit sideConTitSub">
+                                <a href="/coupon/index.html" class="current"><span class="edit">登记查询</span></a>
+
+                                <div id="num_view"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/前台登记-->
+
+                <!--其他管理-->
+
+                <div class="sideCon">
+                    <div class="line"></div>
+                    <div class="sideConInner">
+                        <div class="sideConTit"><b>其他管理</b></div>
+                        <div class="line"></div>
+                        <div class="sideConIntro">
+                            <div class="sideConTit sideConTitSub">
+                                <a href="/data/index.html" class=""><span class="check">统计查询</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/其他管理-->
+
+            </div>
+            <!--/left-->
+
+            <script src="/js/DatePicker/WdatePicker.js" type="text/javascript"></script>
+
+            <!--right-->
+            <div class="content">
+                <!--时间显示-->
+                <div class="currentTime txtC">2014年07月09日 15:19:47星期三</div>
+                <!--时间显示-->
+                <div class="line"></div>
+
+                <!--主要内容-->
+                <div class="mainCon">
+                    <!--所在位置-->
+                    <div class="where">前台登记 > <span>登记</span></div>
+
+
+                    <!--登记查询-->
+                    <div class="mainConBase">
+                        <h1>登记查询</h1>
+                        <div class="mainConBaseInner">
+                            <div class="search taste">
+                                <dl class="mainConInputStyle">
+                                    <dd>
+                                        <span class="w80">CouponID</span><input type="text" id="coupon_id" value="" />
+                                        <span>姓名</span><input type="text" name="name_"  id="name_" value=""/>
+                                        <span>手机</span><input type="text" name="mobile" id="mobile" value=""/>
+                                        <input type="button" onclick="sub();" class="btnFuc" value="查找">
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!--查询结果-->
+                            <table class="resault" width="100%" align="center" border="0" cellpadding="0" cellspacing="0" >
+                                <thead>
+                                    <tr>
+                                        <td width="15%">CouponID</td>
+                                        <td width="15%">姓名</td>
+                                        <td width="16%">手机</td>
+                                        <td width="16%">Email</td>
+                                        <td width="18%">车型</td>
+                                        <td width="20%">体验中心</td>
+                                    </tr>
+                                </thead>
+
+                                <tr>
+                                    <td><b>LREXX0000002</b></td>
+                                    <td>小二</td>
+                                    <td>13325363636</td>
+                                    <td>13325363636@qq.com</td>
+                                    <td width="20%">B</td>
+                                    <td>北京</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LREXX0000003</b></td>
+                                    <td>小二</td>
+                                    <td>13325363636</td>
+                                    <td>13325363636@qq.com</td>
+                                    <td width="20%">B</td>
+                                    <td>北京</td>
+                                </tr>
+                            </table>
+                            <!--/查询结果-->
+                        </div>
+                    </div>
+                    <!--/登记查询-->
+
+
+                    <!--到场登记-->
+                    <div class="mainConBase">
+                        <h1>到场登记</h1>
+                        <div class="mainConBaseInner">
+                            <form class="form-signin" role="form" action=""  method="post" id="form1">
+                                <div class="useFuc">
+                                    使用方式：<input type="radio" name="user_type" value="1" checked="checked"/>同行使用
+                                    <input type="radio" name="user_type" value="2" />拆分使用
+                                </div>
+                                <div class="line subLine"></div>
+                                <!--20140708修改部分-->
+                                <div class="tasteDei">
+                                    <ul>
+
+
+
+                                        <li>
+                                            <div class="useFuc"><b>CouponID：LREXX0000002</b>车型：B</div>
+                                            <div class="taste_reg">
+                                                <dl class="mainConInputStyle">
+                                                    <dd><span><em>*</em>姓名</span><input type="text"  id="c_LREXX0000002_name" name="c[LREXX0000002][name]" value="小二"/><span class="spe">
+                                                            <em>*</em>称谓</span>
+                                                        <select name="c[LREXX0000002][title]" id="c_LREXX0000002_title">
+                                                            <option value="先生" selected>先生</option>
+                                                            <option value="女士" >女士</option>
+                                                        </select></dd>
+                                                    <dd><span><em>*</em>手机</span><input type="text" onBlur="checkMobile($(this).val())" id="c_LREXX0000002_mobile" name="c[LREXX0000002][mobile]" value="13325363636"/></dd>
+                                                    <dd><span><em>*</em>Email</span><input type="text" onblur="" id="c_LREXX0000002_email" name="c[LREXX0000002][email]" value="13325363636@qq.com"/></dd>
+                                                    <dd><span><em>*</em>身份证</span><input type="text" onblur="sfzLen($(this).val())" id="c_LREXX0000002_identity_card" name="c[LREXX0000002][identity_card]" value="111111111111111111"/></dd>
+                                                    <dd><span><em>*</em>预约时间</span><input class="Wdate " type="text" id="c_LREXX0000002_yy_time" name="c[LREXX0000002][yy_time]" onFocus="WdatePicker({dateFmt: 'yyyy-MM-dd'})" placeholder="结束时间" value="2014-07-07"></dd>
+                                                    <dd><span><em>*</em>状态</span>
+                                                        <select name="c[LREXX0000002][state]" id="c_LREXX0000002_state" >
+                                                            <option value="0" >未激活</option>
+                                                            <option value="1" selected>预约使用</option>
+                                                            <option value="2" >过期未使用</option>
+                                                            <option value="3" >已使用</option>
+                                                            <option value="4" >已取消</option>
+                                                        </select>
+                                                        <input type="hidden" name="c[LREXX0000002][city]" value="1"/>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </li>
+
+
+
+                                        <li>
+                                            <div class="useFuc"><b>CouponID：LREXX0000003</b>车型：B</div>
+                                            <div class="taste_reg">
+                                                <dl class="mainConInputStyle">
+                                                    <dd><span><em>*</em>姓名</span><input type="text"  id="c_LREXX0000003_name" name="c[LREXX0000003][name]" value="小二"/><span class="spe">
+                                                            <em>*</em>称谓</span>
+                                                        <select name="c[LREXX0000003][title]" id="c_LREXX0000003_title">
+                                                            <option value="先生" selected>先生</option>
+                                                            <option value="女士" >女士</option>
+                                                        </select></dd>
+                                                    <dd><span><em>*</em>手机</span><input type="text" onBlur="checkMobile($(this).val())" id="c_LREXX0000003_mobile" name="c[LREXX0000003][mobile]" value="13325363636"/></dd>
+                                                    <dd><span><em>*</em>Email</span><input type="text" onblur="" id="c_LREXX0000003_email" name="c[LREXX0000003][email]" value="13325363636@qq.com"/></dd>
+                                                    <dd><span><em>*</em>身份证</span><input type="text" onblur="sfzLen($(this).val())" id="c_LREXX0000003_identity_card" name="c[LREXX0000003][identity_card]" value="123456789123456789"/></dd>
+                                                    <dd><span><em>*</em>预约时间</span><input class="Wdate " type="text" id="c_LREXX0000003_yy_time" name="c[LREXX0000003][yy_time]" onFocus="WdatePicker({dateFmt: 'yyyy-MM-dd'})" placeholder="结束时间" value="2014-07-07"></dd>
+                                                    <dd><span><em>*</em>状态</span>
+                                                        <select name="c[LREXX0000003][state]" id="c_LREXX0000003_state" >
+                                                            <option value="0" >未激活</option>
+                                                            <option value="1" selected>预约使用</option>
+                                                            <option value="2" >过期未使用</option>
+                                                            <option value="3" >已使用</option>
+                                                            <option value="4" >已取消</option>
+                                                        </select>
+                                                        <input type="hidden" name="c[LREXX0000003][city]" value="1"/>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                    <div class="clearboth"></div>
+                                </div>
+                                <!--/20140708修改部分-->
+                                <div style="text-align: center">
+                                <input class="btnFuc" type="button" value="确认登记" onclick="dq()">
+                                    </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+
+                    <!--/到场登记-->
+                    <script>
+                        function dq()
+                        {
+                            str = '["LREXX0000002","LREXX0000003"]';
+                            var ids = JSON.parse(str);
+
+                            tmp = $('input[name="user_type"]:checked').val();
+                            if (!tmp) {
+                                alert('请选择使用方式');
+                                return false;
+                            }
+                            if (1 == tmp)
+                            {
+                                tmp1 = true;
+                                $('#form1 input[type=text]').each(function() {
+                                    if (!$(this).val()) {
+                                        alert('请填写体验券的内容');
+                                        tmp1 = false;
+                                        return false;
+                                    }
+                                });
+                                if (false == tmp1) {
+                                    return false;
+                                }
+                                for (var key = 0; key < ids.length; key++) {
+                                    tmpkey = '#c_' + ids[key] + '_state';
+                                    if (1 != $(tmpkey).val()) {
+                                        alert('数据状态请选择为预约使用');
+                                        tmp1 = false;
+                                        return false;
+                                    }
+                                }
+                                if (false == tmp1) {
+                                    return false;
+                                }
+                                if (true == tmp1) {
+                                    $('#form1').submit();
+                                }
+                            } else {
+                                oneYy = false;
+
+                                for (var key = 0; key <= ids.length; key++) {
+                                    if (1 == $('#c_' + ids[key] + '_state').val()) {
+                                        if ($('#c_' + ids[key] + '_name').val() && checkMobile($('#c_' + ids[key] + '_mobile').val()) && checkEmail($('#c_' + ids[key] + '_email').val()) && sfzLen($('#c_' + ids[key] + '_identity_card').val())) {
+                                            oneYy = true;
+                                        }
+                                    }
+                                }
+                                if (true == oneYy) {
+                                    $('#form1').submit();
+                                } else {
+                                    alert('拆分使用时必须有一条数据是完整状态为已预约');
+                                }
+
+                            }
+                        }
+                    </script>
+
+
+
+
+                    <!--酒店登记-->
+                    <div class="mainConBase">
+                        <h1>酒店登记</h1>
+                        <div class="mainConBaseInner">
+                            <dl class="mainConInputStyle">
+                                <dd>
+                                    <span>酒店名称</span><i>锦江之星</i></dd>
+                                <dd><span>入住时间</span><i>2014-07-08</i></dd>
+                                <dd><span>使用状态</span><i class="colorYellow">预约使用</i></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <!--/酒店登记-->
+                </div>
+                <!--/主要内容-->
+            </div>
+            <!--/right-->
+        </div>
+        <!--/wrap-->
+
+        <script>
+
+            function sub()
+            {
+                coupon_id = $('#coupon_id').val();
+                name_ = $('#name_').val();
+                mobile = $('#mobile').val();
+                if (!coupon_id) {
+                    coupon_id = 0;
+                }
+                if (!name_) {
+                    name_ = null;
+                }
+                if (!mobile) {
+                    mobile = null;
+                }
+                location.href = "/coupon/index/" + coupon_id + "_" + encodeURI(name_) + "_" + mobile + "_.html";
+            }
+
+            function checkMobile(s) {
+                var regu = /^[1][3][0-9]{9}$/;
+                var re = new RegExp(regu);
+                if (re.test(s)) {
+                    return true;
+                } else {
+                    alert('请正确填写手机号');
+                    return false;
+                }
+            }
+
+            function checkEmail(str) {
+                var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                if (reg.test(str)) {
+                    return true;
+                } else {
+                    alert('请正确填写邮箱');
+                    return false;
+                }
+            }
+
+            function sfzLen(str)
+            {
+                if (str.length != 18) {
+                    alert('身份证号码必须18位');
+                    return false;
+                }
+                return true;
+            }
+        </script>
+        <!--弹层-->
+        <div id="dialog-overlay"></div>
+        <div class="alertBox">
+            <div class="alertCon">
+                <div id="ajaxCon">
+                    <div class="popTitle">提示</div>
+                    <div class="popCon">
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p class="txtC"><b id="tip">登记成功</b></p>
+                        <p>&nbsp;</p>
+                        <p class="txtC"><a href="#" class="subClose" id="closeid">关闭</a></p>
+
+                    </div>
+                    <div class="clearboth"></div>
+                </div>
+                <p class="close" title="关闭">X</p>
+            </div>
+            <div class="clearboth"></div>
+        </div>
+        <!--弹层-->
+
+        <script>
+
+            if (typeof (tipInfo) == "undefined") {
+
+
+            } else {
+                $('#tip').html(tipInfo);
+                //$('#closeid').attr('href', '/');
+                // $('#closeid').html('进入');
+                popUp(0);
+                $('.alertBox').show();
+            }
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,39 @@
+@charset "gb2312";
+.fcArea{ margin-bottom:30px}
+.calTable{ margin-bottom:25px}
+	.calTable td{ text-align:center; font-size:9pt; font-family:Arial; line-height:33px; width:40px; height:33px;}
+	.calTable td a { display:block; height:33px;width:40px;}
+	.calTable td.CalDay{}
+	.calTable td.CalDay_B{}
+	.calTable td.CalDay_A{}
+		.calTable td a:link, .calTable td a:visited{color:#a4aeb9; text-decoration: none;}
+	.calTable tr.odd { background:#f3f3f3}
+	.calTable td a.current { background:url(../images/ico38.png) no-repeat 8px 3px}
+	.calTable td a.current:link,.calTable td a.current:visited { color:#fff}
+	.calTable td a.current:hover { text-decoration:none}
+
+.eventDetail { line-height:22px; margin-bottom:5px; border-bottom:1px dashed #aaaaaa; color:#aaaaaa}
+.eventDetail b{color:#767676}
+.Activity { width:197px; word-wrap:break-word; word-break:break-all; color:#c00; }
+.Title { font-size:9pt; font-family:Tahoma; color:#000000; text-decoration:none; font-weight:bold; line-height: 150%; }
+.Intro { font-size:9pt; font-family:Tahoma; color:#880000; text-decoration:none; font-family:Tahoma; word-break:break-all; word-wrap:break-word; width:100%; }
+.Frame { color:#000000; }
+#SpanCalMonth { font-size: 12px; font-family:ËÎÌו; color: #FF6D02; }
+#SpanCalYear { font-family:Arial; }
+#DivCal { margin-top:3px; }
+.MonthYear {width:100%; padding:15px 0 0 0; height:40px; background:url(../images/bg07.png) repeat-x; font-family:Arial, Helvetica, sans-serif; font-size:22px;}
+.actCont div a:link, .actCont div a:visited{ color:#000; }
+
+.calWeek { width:100%; background:#f3f3f3; height:33px; }
+	.calWeek div { float:left; width:42px; height:33px; line-height:33px; overflow:hidden; text-align:center; font-weight:bold; font-size:12px; font-family:Arial; color:#e10e24 }
+
+.MonthYear td{ text-align:center}
+.MonthYear img{ cursor:pointer}
+.MonthYear strong{color:#fff}
+
+.activeBox{margin:10px 0 0 0; display:none}
+	.actTitle{ height:30px; line-height:30px; background:#a6a7ac; border-top:2px solid #e3e4e8}
+		#TdTitle{color:#fff; float:left; padding-left:10px}
+		#actClose{ float:right;width:14px;height:14px;cursor:pointer;background:url(../images/ico37.gif) no-repeat; margin:10px 10px 0 0}
+		#actClose.current {background:url(../images/ico36.gif) no-repeat;}
+	.actCont{text-align:left;overflow:auto;height:100px;padding:3px;scrollbar-3dlight-color:#79aa02;scrollbar-arrow-color:#79aa02;scrollbar-base-color:#f7feea;scrollbar-darkshadow-color:#79aa02;scrollbar-face-color:#f7feea;scrollbar-highlight-color:#f7feea;scrollbar-shadow-color:#f7feea;}
