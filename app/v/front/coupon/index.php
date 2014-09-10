@@ -539,7 +539,7 @@ $rqArr = array(
     }
 
     function checkMobile(s) {
-        var regu = /^[1][3][0-9]{9}$/;
+        var regu = /^[1][0-9][0-9]{9}$/;
         var re = new RegExp(regu);
         if (re.test(s)) {
             return true;
