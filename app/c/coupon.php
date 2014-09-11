@@ -31,6 +31,7 @@ class c_coupon extends c_cabstract
             if ($data) {
                 $userType = $_POST['user_type'];
                 $hotelKey = array();
+                $first    = false;
                 foreach ($data as $key => $val) {
                     $hotelKey[]       = $key;
                     $val['yy_time']   = strtotime($val['yy_time']);
@@ -41,6 +42,7 @@ class c_coupon extends c_cabstract
                     if ($flag) {
                         $obj->db->update('coupon_base_u', array(array('coupon_id', $key)), $val);
                     } else {
+                        $first            = true;
                         $val['coupon_id'] = $key;
                         $obj->db->insert('coupon_base_u', $val);
                     }
@@ -54,6 +56,8 @@ class c_coupon extends c_cabstract
                 }
 
 
+                $type2CoId = array();
+
                 // 酒店使用券
                 $tmp1    = $obj->db->getRow('coupon_base', array(array('coupon_id', $key)));
                 $tmpList = $obj->db->getAll('coupon_base', array(array('same_per_coupon_id', $tmp1['same_per_coupon_id'])));
@@ -63,6 +67,7 @@ class c_coupon extends c_cabstract
                             $who_hotel = 1;
                         } else {
                             if ($valTL['coupon_id'] == $_POST['cp_ids']) {
+                                $type2CoId = $valTL['coupon_id'];
                                 $who_hotel = 1;
                             } else {
                                 $who_hotel = 0;
@@ -71,10 +76,35 @@ class c_coupon extends c_cabstract
                         $obj->db->update('coupon_base_u', array(array('coupon_id', $valTL['coupon_id'])), array('who_hotel' => $who_hotel));
                     }
                 }
-                if (isset($hotelInfo['state']) && $hotelInfo['state'] < 3){
+                if (isset($hotelInfo['state']) && $hotelInfo['state'] < 3) {
                     $obj->db->query("update coupon_base_u set hotel_is = 0 where coupon_id in ('" . implode("','", $hotelKey) . "')");
                 }
                 //, 'hotel_is'=> 0
+
+                if (1 == $userType) {
+                    $dxRow = $obj->db->getRow('coupon_base_u', array(array('coupon_id', $tmpList[0]['coupon_id'])));
+                } else {
+                    $dxRow = $obj->db->getRow('coupon_base_u', array(array('coupon_id', $type2CoId)));
+                }
+
+                $conf = getCon('fieldVal');
+
+                $msg = '';
+                if (1 == $dxRow['state'] && true == $first) {
+                    $msg = $dxRow['name'] . '已预订' . date('m月d日',$dxRow['yy_time']) . $conf['city'][$dxRow['city']] . '体验课程，请协助安排当地酒店预定事宜。具体情况请联系客户再次确认。';
+                }
+                if (1 == $dxRow['state'] && false == $first) {
+                    $msg = $dxRow['name'] . '已更改' . $conf['city'][$dxRow['city']] .'体验课程时间至' . date('m月d日',$dxRow['yy_time']) . '，请协助更改酒店入住时间，请再次和客户联系进行确认。';
+                }
+
+                if (4 == $dxRow['state'] && false == $first) {
+                    $msg = $dxRow['name'] . '已取消' . date('m月d日',$dxRow['yy_time']) . $conf['city'][$dxRow['city']] .  '体验课程，请尽快联系当地酒店安排取消入住事宜。';
+                }
+                if ($msg) {
+                    $msgobj = m('m_msg');
+                    $msgobj->send($msg, '13564232098');// 13564232098
+                   // file_put_contents('MSG.TXT', $msg. "\r\n",FILE_APPEND);
+                }
 
 
                 $err = '提交成功';
@@ -85,7 +115,6 @@ class c_coupon extends c_cabstract
                     $val['utime']         = time();
                     $val['check_in_time'] = strtotime($val['check_in_time']);
                     $flag                 = $obj->db->getRow('hotel_info', array(array('hotel_key', $key)));
-
                     if ($flag) {
                         $obj->db->update('hotel_info', array(array('hotel_key', $key)), $val);
                     } else {
@@ -171,15 +200,19 @@ class c_coupon extends c_cabstract
         if ($couponId < 1) {
             $couponId = '';
         }
-        $ids = array();
-        {
+        $ids = array(); {
             foreach ($list as $val) {
                 $ids[] = $val['coupon_id'];
             }
         }
 
+        if(isset($conf)){
+            return array('cd' => 4, 'err' => $err, 'list' => $list, 'couponId' => $couponId, 'name_' => $name_, 'mobile' => $mobile, 'obj' => $obj, 'nArr' => $nArr, 'ids' => $ids,'conf'=>$conf);
+        } else {
+            return array('cd' => 4, 'err' => $err, 'list' => $list, 'couponId' => $couponId, 'name_' => $name_, 'mobile' => $mobile, 'obj' => $obj, 'nArr' => $nArr, 'ids' => $ids);
+        }
 
-        return array('cd' => 4, 'err' => $err, 'list' => $list, 'couponId' => $couponId, 'name_' => $name_, 'mobile' => $mobile, 'obj' => $obj, 'nArr' => $nArr, 'ids' => $ids);
+
     }
 
     public function sfzeditAction()

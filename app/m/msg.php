@@ -63,7 +63,6 @@ class m_msg
      //   echo $str;
 
         curl_close($ch);
-
         if('100' == substr($str, 0, 3)) {
             return true;
         }

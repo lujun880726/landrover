@@ -217,13 +217,6 @@ $rqArr = array(
     2 => '2015-03-31',
     3 => '2015-02-28',
 );
-//
-// 'city'  => array(
-//        1 => '北京',
-//        2 => '广州',
-//        3 => '湖州',
-//        4 => '成都',
-//    ),
 ?>
 
             function edit_id_care(id_card, yval)
@@ -302,31 +295,39 @@ $rqArr = array(
                                 //
                             }
 <?php endif; ?>
-                    });
-                    tmpDate = '';
-                    if (false == tmp1) {
-                        return false;
-                    }
-                    for (var key = 0; key < ids.length; key++) {
-                        tmpkey = '#c_' + ids[key] + '_yy_time';
-                        if (key < 1) {
-                            tmpDate = $(tmpkey).val();
-                            continue;
-                        } else {
-                            if (tmpDate != $(tmpkey).val()) {
-                                alert('同行使用预约时间必须一样');
+});
+                        tmpDate = '';
+                        for (var key = 0; key < ids.length; key++) {
+                            tmpkey = '#c_' + ids[key] + '_yy_time';
+                            if (key < 1) {
+                                tmpDate = $(tmpkey).val();
+                                continue;
+                            } else {
+                                if (tmpDate != $(tmpkey).val()) {
+                                    alert('同行使用预约时间必须一样');
+                                    tmp1 = false;
+                                    return false;
+                                }
+                            }
+                            if ($('#c_' + ids[key] + '_state') > 0) {
+                                if(false == xytoday($(tmpkey).val()))   {
+                                    tmp1 = false;
+                                    return false;
+                                }
+                            }
+                        }
+                        if (false == tmp1) {
+                            return false;
+                        }
+                        for (var key = 0; key < ids.length; key++) {
+                            tmpkey = '#c_' + ids[key] + '_state';
+                            if ($(tmpkey).val() < 1) {
+                                alert('数据状态必须为非未激活状态');
                                 tmp1 = false;
                                 return false;
                             }
                         }
-                        if ($('#c_' + ids[key] + '_state') > 0) {
-                            if (false == xytoday($(tmpkey).val())) {
-                                tmp1 = false;
-                                return false;
-                            }
-                        }
-                    }
-                    if (false == tmp1) {
+                        if (false == tmp1) {
                         return false;
                     }
                     for (var key = 0; key < ids.length; key++) {
@@ -366,7 +367,7 @@ $rqArr = array(
                             }
                             //
 <?php endif; ?>
-                    } else {
+                    }  else {
                         alert('体验券状态选项错误，请检查后重新选择');
                         tmp1 = false;
                         return false;
@@ -436,7 +437,6 @@ $rqArr = array(
                                 <dd>
                                     <span>酒店名称</span>
                                     <input id="hotelNmae" name="hotel[<?php echo $hotileInfoKey; ?>][hotel_id]" type="text" value="<?php echo isset($hotileInfo['hotel_id']) ? @$hotileInfo['hotel_id'] : ''; ?>" />
-
                                 </dd>
                                 <!--                                <dd>
                                                                     <span>预定代码</span>
@@ -486,7 +486,7 @@ $rqArr = array(
                             </dd>
                             <dd>
 
-                                <span>酒店名称</span><i><?php echo isset($hotileInfo['hotel_id']) ? @$hotileInfo['hotel_id'] : ''; ?></i></dd>
+                             <span>酒店名称</span><i><?php echo isset($hotileInfo['hotel_id']) ? @$hotileInfo['hotel_id'] : ''; ?></i></dd>
                             <dd><span>入住时间</span><i><?php echo isset($hotileInfo['check_in_time']) && $hotileInfo['check_in_time'] ? date('Y-m-d', $hotileInfo['check_in_time']) : ''; ?></i></dd>
                             <dd><span>使用状态</span><i class="colorYellow"><?php echo isset($hotileInfo['state']) ? $conf['state'][$hotileInfo['state']] : ''; ?></i></dd>
                         </dl>
