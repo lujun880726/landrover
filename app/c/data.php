@@ -200,7 +200,7 @@ class c_data extends c_cabstract
                     $row   = mysql_fetch_array($query, MYSQL_ASSOC);
                     $str   = 1 == $row['user_type'] ? '同行使用' : '拆分使用';
 
-                    $data[] = array($row['coupon_id'], $row['name'], $conf['hotel'][$val['hotel_id']], date('Y-m-d', $val['check_in_time']), $conf['city'][$val['city']], $conf['state'][$val['state']]);
+                    $data[] = array($row['coupon_id'], $row['name'], $val['hotel_id'], date('Y-m-d', $val['check_in_time']), $conf['city'][$val['city']], $conf['state'][$val['state']]);
                 }
             }
             $xlsxml = m('m_xlsxml');
