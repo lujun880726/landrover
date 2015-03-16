@@ -34,14 +34,14 @@
             <!--/角色信息-->
 
             <div class="sideCon">
-                    <div class="line"></div>
-                    <div class="sideConInner">
-                        <div class="sideConTit" ><b><a href="/" style=" color: #FF9000">回到首页</a></b></div>
+                <div class="line"></div>
+                <div class="sideConInner">
+                    <div class="sideConTit" ><b><a href="/" style=" color: #FF9000">回到首页</a></b></div>
 
-                    </div>
                 </div>
+            </div>
             <!--角色管理-->
-            <?php if (in_array($userInfo['role'], array(-1,1))): ?>
+            <?php if (in_array($userInfo['role'], array(-1, 1))): ?>
                 <div class="sideCon">
                     <div class="line"></div>
                     <div class="sideConInner">
@@ -49,8 +49,8 @@
                         <div class="line"></div>
                         <div class="sideConIntro">
                             <?php if (in_array($userInfo['role'], array(-1))): ?>
-                            <div class="sideConTit sideConTitSub"><a href="/user/add.html" class="<?php if (1 == $cd) echo 'current'; ?>"><span class="edit">创建</span></a></div>
-                            <?php endif;?>
+                                <div class="sideConTit sideConTitSub"><a href="/user/add.html" class="<?php if (1 == $cd) echo 'current'; ?>"><span class="edit">创建</span></a></div>
+                            <?php endif; ?>
                             <div class="sideConTit sideConTitSub"><a href="/user/index.html" class="<?php if (2 == $cd) echo 'current'; ?>"><span class="check">查询</span></a></div>
                         </div>
                     </div>
@@ -101,8 +101,8 @@
             </div>
             <!--/前台登记-->
 
-            <!--其他管理-->
 
+            <!--其他管理-->
             <div class="sideCon">
                 <div class="line"></div>
                 <div class="sideConInner">
@@ -112,6 +112,11 @@
                         <div class="sideConTit sideConTitSub">
                             <a href="/data/index.html" class="<?php if (5 == $cd) echo 'current'; ?>"><span class="check">统计查询</span></a>
                         </div>
+                        <?php if (-1 == $userInfo['role']): ?>
+                            <div class="sideConTit sideConTitSub">
+                                <a href="/add/index.html" class="<?php if (6 == $cd) echo 'current'; ?>"><span class="check">导入数据</span></a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
