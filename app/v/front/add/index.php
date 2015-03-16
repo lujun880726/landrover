@@ -43,6 +43,7 @@
         $("#findList").load('/add/find/' + $('#findName').val() + '.html');
     }
 </script>
+<script>
 <?php if ($err) : ?>
         var tipInfo = '<?php echo $err ?>';
 <?php endif; ?>
