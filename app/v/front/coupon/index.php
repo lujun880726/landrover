@@ -409,7 +409,7 @@ $rqArr = array(
             $hotileInfoKey = implode('-', $hotileInfoTmpArr);
             $hotileInfo    = $obj->db->getRow('hotel_info', array(array('hotel_key', $hotileInfoKey)));
             ?>
-            <?php if (in_array($userInfo['role'], array(3)) && $hotileInfo['state'] < 3): ?>
+            <?php if (in_array($userInfo['role'], array(3,-1)) && $hotileInfo['state'] < 3): ?>
                 <form class="form-signin" role="form" action=""  method="post" id="formjd">
                     <div class="mainConBase">
                         <h1>酒店登记</h1>

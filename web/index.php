@@ -66,11 +66,18 @@ function __autoload($className)
     if (strpos($className, 'm_') !== false) {
         $classPath = ROOT_APP . str_replace('_', DS, $className);
     }
-    include_once $classPath . '.php';
-    if (!class_exists($className, false)) {
-        trigger_error('<br />Unable to load class: ' . $className, E_USER_WARNING);
-        exit();
+    str_replace('PHPExcel', '', $className, $cnt);
+    if ($cnt < 1) {
+        include_once $classPath . '.php';
+    } else {
+        $file = str_replace('_', DS, $className) . '.php';
+        require_once ROOT_M . 'PHPExcel' . DS . $file;
     }
+
+//    if (!class_exists($className, false)) {
+//        trigger_error('<br />Unable to load class: ' . $className, E_USER_WARNING);
+//        exit();
+//    }
 }
 
 session_start();
@@ -149,7 +156,7 @@ function pageHtml($url, $page, $cnt)
         }
         if ($cnt != $page) {
             $str .= '<a href="' . $url . ($page + 1) . '.html" class="next">下一页</a>';
-          //  $str .= '<a href="' . $url . ($page + 1) . '.html" style="text-align:right;">下一页</a>';
+            //  $str .= '<a href="' . $url . ($page + 1) . '.html" style="text-align:right;">下一页</a>';
         }
     }
     $str .= '共' . $cnt . '页';
