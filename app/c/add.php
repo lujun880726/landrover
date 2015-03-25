@@ -41,6 +41,10 @@ class c_add extends c_cabstract
                         $i++;
                         continue;
                     }
+                     if (empty($data[4])) {
+                        $i++;
+                        continue;
+                    }
                     $sql  = "select count(*) as num from coupon_base where coupon_id = '{$data[0]}' ";
                     $tmp1 = mysql_fetch_array($obj->db->query($sql));
                     if ($tmp1['num'] < 1) {
