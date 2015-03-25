@@ -69,6 +69,7 @@ class c_add extends c_cabstract
 
     function findAction()
     {
+        $this->_viewType  = 2;
         $obj = m('m_couponBase');
         $sql = "select *  from coupon_base where coupon_id = '{$this->getx(0)}' and user_type < 1 ";
 
@@ -84,7 +85,7 @@ class c_add extends c_cabstract
 
     function deloneAction()
     {
-
+        $this->_viewType  = 2;
         $obj = m('m_couponBase');
         $obj->db->delete('coupon_base', array(array('coupon_id', $_POST['id'])));
         echo '删除成功';
